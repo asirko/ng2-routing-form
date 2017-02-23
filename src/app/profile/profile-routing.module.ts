@@ -14,6 +14,21 @@ export const profileRoutes: Routes = [
   }
 ];
 
+// ce que j'aurai aimé :
+/*
+
+export const profileRoutes: Routes = [
+  {
+    path: '',
+    component: ListComponent
+  }, {
+    path: ':id',
+    component: DetailComponent
+  }
+];
+
+*/
+
 @NgModule({
   imports: [RouterModule.forChild(profileRoutes)],
   exports: [RouterModule],

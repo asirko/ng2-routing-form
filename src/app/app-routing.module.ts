@@ -12,7 +12,14 @@ const routes: Routes = [
   }, {
     path: 'home',
     component: HomeComponent
-  }, {
+  },
+  /* Ce que j'aurai aimé
+  {
+    path: 'profile',
+    children: profileRoutes
+  },
+  */
+  {
     path: '**',
     component: Erreur404Component
   }
