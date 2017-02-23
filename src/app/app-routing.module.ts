@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { Erreur404Component } from './erreur404/erreur404.component';
-import { ProfileModule } from './profile/profile.module';
 
 const routes: Routes = [
   {
@@ -12,22 +11,17 @@ const routes: Routes = [
   }, {
     path: 'home',
     component: HomeComponent
-  },
-  /* Ce que j'aurai aimé
-  {
+  }, {
     path: 'profile',
-    children: profileRoutes
-  },
-  */
-  {
+    loadChildren: 'app/profile/profile.module#ProfileModule'
+  }, {
     path: '**',
     component: Erreur404Component
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), ProfileModule],
-  exports: [RouterModule],
-  providers: []
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

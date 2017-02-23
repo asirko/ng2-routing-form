@@ -1,5 +1,6 @@
 export class Profile {
-  nickname?: string;
+  id?: number;
+  pseudo?: string;
   age: number;
   email: string;
 }

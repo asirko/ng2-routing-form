@@ -1,3 +1,26 @@
-<p>
-  detail works!
-</p>
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="profileForm">
+  <label>
+    <span>Pseudonyme</span>
+    <input type="text" formControlName="pseudo">
+  </label>
+
+  <label>
+    <span>age</span>
+    <input type="number" formControlName="age">
+  </label>
+
+  <div formGroupName="emailGroup">
+    <label>
+      <span>Adresse E-mail</span>
+      <input type="email" formControlName="email">
+    </label>
+    <label>
+      <span>Confirmation</span>
+      <input type="email" formControlName="confirm">
+    </label>
+  </div>
+
+  <button type="submit" [disabled]="profileForm.invalid">Enregistrer</button>
+
+  {{profileForm.valueChanges | async | json}}
+</form>
