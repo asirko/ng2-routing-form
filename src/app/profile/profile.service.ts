@@ -1,23 +1,32 @@
 import { Injectable } from '@angular/core';
-import {Profile} from "./profile";
+import {IProfile} from "./profile";
 
 @Injectable()
 export class ProfileService {
 
-  private profiles: Array<Profile> = [];
-  private lastId = 0;
+  private profiles: Array<IProfile> = [
+    {
+      id: 1,
+      name: 'Sirko',
+      surname: 'Alexandre',
+      technologies: ['Struts', 'JSF', 'Angular', 'Backbone', 'Angular 2'],
+      description: 'Développeur Front-End'
+    }
+  ];
+  private lastId = 1;
 
   constructor() { }
 
-  findProfile(id: number) : Profile {
-    return this.profiles.find((p:Profile) => p.id === id);
+  findProfile(id: number) : IProfile {
+    return this.profiles.find((p: IProfile) => p.id === id);
   }
 
-  findProfiles() : Array<Profile> {
+  findProfiles() : Array<IProfile> {
+    console.log(this.profiles);
     return this.profiles;
   }
 
-  createProfile(profile : Profile) : void {
+  createProfile(profile : IProfile) : void {
     profile.id = this.lastId++;
     this.profiles.push(profile);
   }

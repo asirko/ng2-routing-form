@@ -1,5 +1,10 @@
-<p>
-  list works!
+<div class="profiles-titre">
+  <h2>Liste des profiles</h2>
+  <button class="btn add-profile" (click)="createProfile()">Créer un profil</button>
+</div>
 
-  <button (click)="createProfile()">Créer un profil</button>
-</p>
+<div class="profiles-list">
+  <div class="profiles-item" *ngFor="let profile of profiles">
+bla
+  </div>
+</div>

@@ -1,0 +1,20 @@
+@import "colors";
+@import "mixins";
+
+.btn {
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px 0;
+  background-color: $color-main;
+  color: #fff;
+  @include box-shadow();
+
+  &:disabled {
+    background-color: $color-gray;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}

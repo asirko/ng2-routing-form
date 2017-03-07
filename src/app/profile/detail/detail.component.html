@@ -1,26 +1,43 @@
 <form novalidate (ngSubmit)="onSubmit()" [formGroup]="profileForm">
-  <label>
-    <span>Pseudonyme</span>
-    <input type="text" formControlName="pseudo">
-  </label>
 
-  <label>
-    <span>age</span>
-    <input type="number" formControlName="age">
-  </label>
-
-  <div formGroupName="emailGroup">
-    <label>
-      <span>Adresse E-mail</span>
-      <input type="email" formControlName="email">
-    </label>
-    <label>
-      <span>Confirmation</span>
-      <input type="email" formControlName="confirm">
-    </label>
+  <div class="form-row">
+    <div class="form-field" [ngClass]="{'has-error': displayMessage.name }">
+      <label for="nameId">Nom</label>
+      <input id="nameId" type="text" formControlName="name"/>
+      <div class="form-field-message" *ngIf="displayMessage.name">{{displayMessage.name}}</div>
+    </div>
   </div>
 
-  <button type="submit" [disabled]="profileForm.invalid">Enregistrer</button>
+  <div class="form-row">
+    <div class="form-field" [ngClass]="{'has-error': displayMessage.surname}">
+      <label for="surnameId">Prénom</label>
+      <input id="surnameId" type="text" formControlName="surname"/>
+      <div class="form-field-message" *ngIf="displayMessage.surname">{{displayMessage.surname}}</div>
+    </div>
+  </div>
 
-  {{profileForm.valueChanges | async | json}}
+  <div formArrayName="technologies" [ngClass]="{'has-error': displayMessage.technologies}">
+    <button class="btn profile-mot-cle" [disabled]="profileForm.get('technologies').invalid" type="button" (click)="addTechnologie()">Ajouter une technologie</button>
+    <div class="form-row" *ngFor="let tag of technologies.controls; let i=index">
+      <div class="form-field form-field-is-small">
+        <input [id]="i" type="text" [formControlName]="i"/>
+      </div>
+    </div>
+    <div class="form-field-message" *ngIf="displayMessage.technologies">{{displayMessage.technologies}}</div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-field" [ngClass]="{'has-error': displayMessage.description}">
+      <label for="descriptionId">Description</label>
+      <textarea id="descriptionId" rows=3 formControlName="description"></textarea>
+      <div *ngIf="displayMessage.description">{{ displayMessage.description}}</div>
+    </div>
+  </div>
+
+  <button class="btn" type="submit" [disabled]="!profileForm.valid">Enregistrer</button>
+
 </form>
+
+<div>
+  {{profileForm.value | json}}
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {ProfileService} from "../profile.service";
+import {IProfile} from "../profile";
 
 @Component({
   selector: 'rf-list',
@@ -8,9 +10,14 @@ import {Router} from "@angular/router";
 })
 export class ListComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  private profiles: Array<IProfile>;
+
+  constructor(private router: Router,
+              private profileService: ProfileService) { }
 
   ngOnInit() {
+    this.profiles = this.profileService.findProfiles();
+    console.log(this.profiles);
   }
 
   createProfile() {

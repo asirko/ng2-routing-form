@@ -1,0 +1,55 @@
+@import "colors";
+@import "mixins";
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3px 0;
+}
+
+.form-field {
+  margin: 3px 0;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  label {
+    display: block;
+  }
+
+  input {
+    width: 300px;
+    padding: 6px 20px;
+    border: 1px solid $color-text;
+    border-radius: 5px;
+
+    &:focus {
+      padding: 5px 20px;
+      border-color: $color-main;
+      border-width: 2px;
+      outline: none;
+    }
+
+    &[type=number] {
+      padding-right: 5px;
+    }
+  }
+
+  &.form-field-is-large input {
+    width: 480px;
+  }
+
+  &.form-field-is-small input {
+    width: 160px;
+  }
+
+  &.has-error input {
+    border-color: $color-danger;
+  }
+
+}
+
+.has-error .form-field-message {
+  color: $color-danger;
+}

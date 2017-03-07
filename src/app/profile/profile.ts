@@ -1,6 +1,7 @@
-export class Profile {
+export interface IProfile {
   id?: number;
-  pseudo?: string;
-  age: number;
-  email: string;
+  name: string;
+  surname: string;
+  technologies?: string[];
+  description: string;
 }

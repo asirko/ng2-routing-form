@@ -1,0 +1,12 @@
+@import "colors";
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $color-text;
+  font-size: 10px;
+
+  * {
+    font-size: 1.4rem;
+  }
+}

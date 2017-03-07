@@ -1,0 +1,14 @@
+@import "../../../styles/colors";
+
+.profiles-titre {
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.6rem;
+    color: $color-main;
+    line-height: 45px;
+  }
+}
